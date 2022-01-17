@@ -1,9 +1,9 @@
 <template>
   <header>
-    <div class="">
-        <div class="row ms-5">
-            <div class="col-1 ">
-                <img src="../assets/img/Couleur-logo-Spotify.jpg" alt="">
+    <div class="container-fluid ">
+        <div class="row text-start ">
+            <div class="col-12 ">
+                <img src="../assets/img/Spotify_logo_without_text.svg.png" alt="">
 
             </div>
             
@@ -22,10 +22,11 @@ export default {
 
 <style lang="scss">
 
-.col-1{
+.col-12{
+    background-color: #2D3A46;
     
     img{
-        width: 100px;
+        width: 60px;
     }
 }
 </style>
