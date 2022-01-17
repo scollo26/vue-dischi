@@ -1,6 +1,6 @@
 <template>
   <footer>
-    Rick and Morty
+   
   </footer>
 </template>
 
