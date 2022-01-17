@@ -1,7 +1,7 @@
 <template>
 	<div class="col">
     <div class="spotify p-3">
-			<img class="pb-3" :src="image" :alt="name">
+			<img class="pb-3" :src="image" >
 			<span class="title pb-1">{{title}}</span>
 			<span class="subtitle">{{artist}}</span>
 			<span class="year">{{year}}</span>
@@ -14,7 +14,6 @@ export default {
 	name: "Card",
 	props: [
 		'image',
-		'name',
 		'title',
 		'artist',
 		'year'
@@ -23,7 +22,9 @@ export default {
 </script>
 
 <style lang="scss">
-.spotify {
+.col {
+		padding: 0.5em 1em;
+		.spotify {
 		background-color: #2D3A46;
 		display: flex;
 		flex-direction: column;
@@ -38,12 +39,14 @@ export default {
 			font-weight: 500;
 		}
 		.subtitle{
-            color: white;
+            color: grey;
         } 
         .year {
-			color: white;
+			color: grey
 		}
 	}
+	}
+
 
 
 </style>
