@@ -16,12 +16,13 @@ export default {
 		'image',
 		'title',
 		'artist',
-		'year'
+		'year',
+		'genre',
 	]
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 .col {
 		padding: 0.5em 1em;
 		.spotify {
