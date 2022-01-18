@@ -3,8 +3,8 @@
   <div class="container-60 pt-5 ">
 	  <div class="container ">
             <div class="row select ">
-                <div class="col">
-					<!-- inserimento form -->
+                <!-- <div class="col">
+					
 					<select v-model="selected" @change="Value"  >
 						<option value="all">All</option>
 						<option value="rock">Rock</option>
@@ -12,9 +12,13 @@
 						<option value="jazz">Jazz</option>
 						<option value="metal">Metal</option>
 					</select>
-                </div>
-                
+                </div> -->
+
+				<!-- collegamento figlio Search per la ricerca di genere -->
+                <Search @doSearch="Value($event)"/>
+				
             </div>
+			
         </div>
 		<div v-if="cards" class="row row-cols-5">
 				<Card 
@@ -36,16 +40,19 @@
 // importazione axiox e figlio card
 import axios from 'axios';
 import Card from './Card.vue';
+import Search from './Search.vue';
 export default {
   name: "Main",
 	components: {
 		Card,
+		Search,
 	},
 	data() {
 		return {
 			cards: null,
-			selected: 'all',
+			// selected: 'all',
 			arrayOrigi: null,
+			selectArti: 'all',
 			Api: "https://flynn.boolean.careers/exercises/api/array/music"
 			
 			
@@ -73,17 +80,18 @@ export default {
 			})
 		},
 		// funzione per form selected
-		Value: function (){
+		Value: function (text){
 			this.cards = this.arrayOrigi
-			if (this.selected != 'all') {
+			if (text != 'all') {
 				this.cards = this.cards.filter(element => 
-				element.genre.toLowerCase()  === this.selected);
+				element.genre.toLowerCase()  === text);
 			} else {
 				return this.cards;
 			}
 			return this.cards;
 			
-		}
+		},
+		
 		
 
 	}
