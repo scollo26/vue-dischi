@@ -5,6 +5,7 @@
 			<span class="title pb-1">{{title}}</span>
 			<span class="subtitle">{{artist}}</span>
 			<span class="year">{{year}}</span>
+			<span class="genre">{{genre}}</span>
     </div>
 	</div>
 </template>
@@ -42,7 +43,7 @@ export default {
 		.subtitle{
             color: grey;
         } 
-        .year {
+        .year, .genre {
 			color: grey
 		}
 	}

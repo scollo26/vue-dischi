@@ -4,14 +4,8 @@
 	  <div class="container ">
             <div class="row select ">
                 <div class="col">
-					<!-- <select class=" form-select form-select-sm " aria-label=".form-select-sm example">
-                    <option selected>Seleziona Genere</option>
-						<option value="Rock">Rock</option>
-						<option value="Pop">Pop</option>
-						<option value="Jazz">Jazz</option>
-						<option value="Metal">Metal</option>
-                	</select> -->
-					<select v-model="selected"  >
+					<!-- inserimento form -->
+					<select v-model="selected" @change="Value"  >
 						<option value="all">All</option>
 						<option value="rock">Rock</option>
 						<option value="pop">Pop</option>
@@ -71,13 +65,25 @@ export default {
 			.then((result) => {
 				console.log(result);
 				this.cards = result.data.response;
+				// array originale
 				this.arrayOrigi = result.data.response;
 			})
 			.catch((error) => {
 				console.log(error);
 			})
 		},
-		
+		// funzione per form selected
+		Value: function (){
+			this.cards = this.arrayOrigi
+			if (this.selected != 'all') {
+				this.cards = this.cards.filter(element => 
+				element.genre.toLowerCase()  === this.selected);
+			} else {
+				return this.cards;
+			}
+			return this.cards;
+			
+		}
 		
 
 	}
